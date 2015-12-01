@@ -4,7 +4,7 @@
 % Published under Beeware-License:
 %
 % Ronny Bergmann <bergmann@math.uni-luebeck.de> wrote this file. As long as you retain this notice you
-% can do whatever you want with this stuff. If we meet some day, and you think 
+% can do whatever you want with this stuff. If we meet some day, and you think
 % this stuff is worth it, you can buy me a beer or coffee in return.
 
 %
@@ -12,12 +12,14 @@
 % Title Page
 %
 %
+
+\setbeamerfont{title}{series=\lfseries}
 \defbeamertemplate*{title page}{UzL}
 {
 	\mbox{}\vfill
 	\centering
 	{
-		\usebeamercolor[fg]{title}\usebeamerfont{title}\inserttitle\par
+		\usebeamercolor[fg]{title}\usebeamerfont*{title}\huge\inserttitle\par
 		\usebeamercolor[fg]{subtitle}\usebeamerfont{subtitle}\insertsubtitle
 	}%
 	\vskip6ex
@@ -33,11 +35,27 @@
 			{
 	    		\usebeamercolor[fg]{date}\usebeamerfont{date}\insertdate\par
 			}
-			\vskip4ex  
+			\vskip4ex
 			\vfill
 			\vskip1.8ex
 			\ifUzL@showslogan
 				\hfill\hskip-1.8em\pgfuseimage{uzlslogan}
 			\fi
 	\mbox{}
+}
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+%
+% Section Page
+%
+\setbeamertemplate{section page}
+{
+
+}
+\defbeamertemplate*{section page}{UzL}[1][]
+{
+	~ \\ \btVFill
+	\begin{beamercolorbox}[sep=12pt]{part title}
+	{\usebeamerfont*{section title} \fontsize{30pt}{45pt}\selectfont \insertsection\par}
+	{\usebeamerfont{subsection title} \big #1 \par}\bigskip\bigskip
+	\end{beamercolorbox}
 }
